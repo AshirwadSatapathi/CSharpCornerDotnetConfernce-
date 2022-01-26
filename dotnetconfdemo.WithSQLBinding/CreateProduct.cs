@@ -24,7 +24,6 @@ namespace dotnetconfdemo.WithSQLBinding
 
             product = data;
 
-
             return new CreatedResult($"/api/product", product);
         }
     }

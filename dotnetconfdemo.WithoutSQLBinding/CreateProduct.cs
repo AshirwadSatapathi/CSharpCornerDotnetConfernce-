@@ -34,7 +34,7 @@ namespace dotnetconfdemo.WithoutSQLBinding
                     }
                     else
                     {
-                        var query = $"INSERT INTO [Product] (ProductName, ProductDescription, ProductPrice, ProductQuantity) VALUES('{product.ProductName}', '{product.ProductDescription}' , {product.ProductPrice},{product.ProductQuantity})";
+                        var query = $"INSERT INTO [Product] (ProductId, ProductName, ProductDescription, ProductPrice, ProductQuantity) VALUES({product.ProductId},'{product.ProductName}', '{product.ProductDescription}' , {product.ProductPrice},{product.ProductQuantity})";
                         SqlCommand command = new SqlCommand(query, connection);
                         command.ExecuteNonQuery();
                     }

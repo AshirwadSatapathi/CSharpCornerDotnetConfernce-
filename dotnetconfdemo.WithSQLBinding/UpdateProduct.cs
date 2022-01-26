@@ -23,7 +23,14 @@ namespace dotnetconfdemo.WithSQLBinding
             string requestBody = new StreamReader(req.Body).ReadToEnd();
             dynamic data = JsonConvert.DeserializeObject<Product>(requestBody);
 
-            product = data;
+            product = new Product()
+            {
+                ProductId = id,
+                ProductName = data.ProductName,
+                ProductDescription = data.ProductDescription,
+                ProductPrice = data.ProductPrice,
+                ProductQuantity = data.ProductQuantity
+            };
 
             return new NoContentResult();
         }

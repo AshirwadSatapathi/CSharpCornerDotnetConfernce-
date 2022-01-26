@@ -18,11 +18,11 @@ namespace dotnetconfdemo.WithSQLBinding
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "product/{id:int}")] HttpRequest req,
             int id,
-            [Sql("SELECT * FROM dbo.Product WHERE Id=@id",CommandType =System.Data.CommandType.Text,
+            [Sql("SELECT * FROM dbo.Product WHERE ProductId=@id",CommandType =System.Data.CommandType.Text,
             Parameters ="@Id={id}",ConnectionStringSetting ="ConnectionString")] IEnumerable<Product> products,
             ILogger log)
         {
-            log.LogInformation($"The product id is {id}");
+            //log.LogInformation($"The product id is {id}");
 
             return new OkObjectResult(products);
         }
